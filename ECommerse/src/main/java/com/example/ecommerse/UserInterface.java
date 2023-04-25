@@ -287,6 +287,7 @@ public class UserInterface {
                 if (count!=0)
                 {
                     showDialog("Order for "+count+" products placed Successfully!!");
+                    itemsInCart.clear();
                 }
                 else {
                     showDialog("Order Failed!!");
