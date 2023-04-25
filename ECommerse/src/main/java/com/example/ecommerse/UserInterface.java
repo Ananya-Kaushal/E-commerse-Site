@@ -194,16 +194,47 @@ public class UserInterface {
         searchBar.setPromptText("Search here");
         searchBar.setPrefWidth(250);
 
-        Button seachButton=new Button("Search");
+        Button seachButton=new Button();//"Search"
+        Image imageSearch=new Image("C:\\Users\\user\\IdeaProjects\\ECommerse\\src\\SerachButton.png");
+        ImageView imageViewSearch=new ImageView();
+        imageViewSearch.setImage(imageSearch);
+        imageViewSearch.setFitHeight(30);
+        imageViewSearch.setFitWidth(50);
+        searchButton.setGraphic(imageViewSearch);
 
-        signInButton =new Button("Sign In");
-        signUpButton = new Button("Sign Up");
+        signInButton =new Button();//"Sign In"
+        Image imageSignIn=new Image("C:\\Users\\user\\IdeaProjects\\ECommerse\\src\\Login.png");
+        ImageView imageViewSignIn=new ImageView();
+        imageViewSignIn.setImage(imageSignIn);
+        imageViewSignIn.setFitHeight(30);
+        imageViewSignIn.setFitWidth(50);
+        signInButton.setGraphic(imageViewSignIn);
+        
+        signUpButton = new Button();//"Sign Up"
+        Image imageSignUp=new Image("C:\\Users\\user\\IdeaProjects\\ECommerse\\src\\SignUp.png");
+        ImageView imageViewSignUp=new ImageView();
+        imageViewSignUp.setImage(imageSignUp);
+        imageViewSignUp.setFitHeight(30);
+        imageViewSignUp.setFitWidth(50);
+        signUpButton.setGraphic(imageViewSignUp);
 
         welcomeLabel=new Label();
 
-        Button cartButton=new Button("Cart");
+        Button cartButton=new Button();//"Cart"
+        Image imageCart=new Image("C:\\Users\\user\\IdeaProjects\\ECommerse\\src\\cartButton.png");
+        ImageView imageViewCart=new ImageView();
+        imageViewCart.setImage(imageCart);
+        imageViewCart.setFitHeight(30);
+        imageViewCart.setFitWidth(40);
+        cartButton.setGraphic(imageViewCart);
 
-        Button orderButton=new Button("Order");
+        Button orderButton=new Button();//"Order"
+        Image imageOrder=new Image("C:\\Users\\user\\IdeaProjects\\ECommerse\\src\\purchase.png");
+        ImageView imageViewOrder=new ImageView();
+        imageViewOrder.setImage(imageOrder);
+        imageViewOrder.setFitHeight(30);
+        imageViewOrder.setFitWidth(40);
+        orderButton.setGraphic(imageViewOrder);
 
         headerBar =new HBox();//for gap or spacing
         headerBar.setPadding(new Insets(10));
