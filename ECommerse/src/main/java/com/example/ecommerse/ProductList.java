@@ -10,6 +10,8 @@ import javafx.scene.layout.VBox;
 
 public class ProductList {
     private TableView<Product> productTable;
+    private TableView<Product> cartTable;
+    
     public VBox createTable(ObservableList<Product> data)
     {
         //Columns
@@ -36,6 +38,34 @@ public class ProductList {
         vBox.getChildren().addAll(productTable);
         return vBox;
     }
+    
+    public VBox createTableForCart(ObservableList<Product> data)
+    {
+        //Columns
+        TableColumn id= new TableColumn("ID");
+        id.setCellValueFactory(new PropertyValueFactory<>("id"));
+
+        TableColumn name=new TableColumn("NAME");
+        name.setCellValueFactory(new PropertyValueFactory<>("name"));
+
+        TableColumn price=new TableColumn("PRICE");
+        price.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+        /*TableColumn quantity=new TableColumn("QUANTITY");
+        quantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));*/
+
+        cartTable=new TableView<>();
+        cartTable.getColumns().addAll(id,name,price);
+        cartTable.setItems(data);
+        cartTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        //the extra column will be removed with the help of Resizing policy
+
+        VBox vBox=new VBox();
+        vBox.setPadding(new Insets(10));
+        vBox.getChildren().addAll(cartTable);
+        return vBox;
+    }
+
     public VBox getDummyTable()
     {
         ObservableList<Product> data=FXCollections.observableArrayList();
@@ -55,6 +85,6 @@ public class ProductList {
     }
     public VBox getProductsInCart(ObservableList<Product> data)
     {
-        return createTable(data);
+        return createTableForCart(data);
     }
 }
