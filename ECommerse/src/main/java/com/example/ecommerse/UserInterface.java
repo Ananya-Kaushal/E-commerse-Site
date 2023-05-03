@@ -26,6 +26,7 @@ public class UserInterface {
     HBox footerBar;
     Button signInButton;
     Button signUpButton;
+    Button logOutButton;
     Label welcomeLabel;
     VBox body;
     Customer loggedInCustomer;
@@ -34,6 +35,7 @@ public class UserInterface {
     VBox productPage;
     Button placeOrderButton = new Button("Place Order");
     ObservableList<Product> itemsInCart= FXCollections.observableArrayList();
+    Label messageLable;
     public BorderPane createContent()
     {
         BorderPane root=new BorderPane();
@@ -70,7 +72,7 @@ public class UserInterface {
         password.setText("abc123");
         password.setPromptText("Type your password here!!");
 
-        Label messageLable=new Label("Hey!!");
+        messageLable=new Label("Hey!!");
 
         Button loginButton=new Button("Login");
 
@@ -217,6 +219,14 @@ public class UserInterface {
         imageViewSignUp.setFitHeight(30);
         imageViewSignUp.setFitWidth(50);
         signUpButton.setGraphic(imageViewSignUp);
+        
+        logOutButton =new Button();//"Log Out"
+        Image imageLogOut=new Image("C:\\Users\\user\\IdeaProjects\\ECommerse\\src\\logoutButton.png");
+        ImageView imageViewLogOut=new ImageView();
+        imageViewLogOut.setImage(imageLogOut);
+        imageViewLogOut.setFitHeight(30);
+        imageViewLogOut.setFitWidth(50);
+        logOutButton.setGraphic(imageViewLogOut);
 
         welcomeLabel=new Label();
 
@@ -330,6 +340,28 @@ public class UserInterface {
 
                 footerBar.setVisible(false);//all cases need to handled for this
                 placeOrderButton.setDisable(true);
+            }
+        });
+        
+        logOutButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                if(loggedInCustomer!=null) {
+                    loggedInCustomer = null;
+
+                    messageLable.setText("");
+                    welcomeLabel.setText("");
+                    body.getChildren().clear();
+                    body.getChildren().add(productPage);
+                    //loginPage.setVisible(true);
+                    //signInButton.setVisible(true);
+                    //homeButton.setVisible(true);
+                    //headerBar.getChildren().addAll(homeButton);
+                }
+                if (loggedInCustomer==null && headerBar.getChildren().indexOf(signInButton)==-1)
+                {
+                    headerBar.getChildren().add(signInButton);
+                }
             }
         });
     }
