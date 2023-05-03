@@ -194,7 +194,7 @@ public class UserInterface {
 
         TextField searchBar=new TextField();
         searchBar.setPromptText("Search here");
-        searchBar.setPrefWidth(250);
+        searchBar.setPrefWidth(200);
 
         Button seachButton=new Button();//"Search"
         Image imageSearch=new Image("C:\\Users\\user\\IdeaProjects\\ECommerse\\src\\SerachButton.png");
